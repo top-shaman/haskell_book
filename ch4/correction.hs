@@ -10,5 +10,5 @@ f xs      = w `x` 1
 myId = \x -> x
 
 --3
--- changed to ff to prevent compiler error
-ff a b = a
+-- f changed to f1 to prevent compiler error
+f1 a b = a
