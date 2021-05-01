@@ -15,7 +15,7 @@ settleDown x = if x == Woot
 --b) Error, because it isnt expecting any inputs aside from "Woot" and "Blah"
 --c) Error, because Blah & Woot aren't global variables, and they don't have an Ord instance
 
---4
+--4 Yes, but s1 returns an error because there's no Object.
 type Subject = String
 type Verb = String
 type Object = String
