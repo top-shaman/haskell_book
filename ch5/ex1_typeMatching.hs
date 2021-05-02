@@ -1,0 +1,5 @@
+--a) not :: Bool -> Bool -- C
+--b) length :: [a] -> Int -- D
+--c) concat :: [[a]] -> [a] -- B
+--d) head :: [a] -> a -- A
+--e) (<) :: Ord a => a -> a -> Bool -- E

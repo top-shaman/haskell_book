@@ -1,0 +1,5 @@
+--1. not True && True
+--2. x = 5; not (x ==6)
+--3. correct
+--4. ["Merry"] > ["Happy"]
+--5 "1, 2, 3" ++ " look at me!"

@@ -1,0 +1,6 @@
+--1. Can't be done. Tested this in the REPL
+--2. f a b = a
+--   f a b = b
+--   Can't combine values because we don't know which operations will work
+--3. one implementation, the behavior doesn't change
+--   Could potentially change behavior if we knew more about a & b.
