@@ -1,0 +1,4 @@
+--1.a) k :: (a, b) -> a
+--  b) it's different because the type of the first element in tuple k2 is a String/[Char] & k1 & k3 are Integers
+--  c) k1 & k3
+--2. f (a, b, c) (d, e, f) = ((a, d), (c, f))
