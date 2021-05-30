@@ -7,10 +7,10 @@ c = []
 myZip :: [a] -> [b] -> [(a, b)]
 myZip _ [] = []
 myZip [] _ = []
-myZip x y = (head x, head y) : myZip (tail x) (tail y)
+myZip (x:xs) (y:ys) = (x, y) : myZip xs ys
 
 myZipWith :: (a -> b -> c)
           -> [a] -> [b] -> [c]
 myZipWith f _ [] = []
 myZipWith f [] _ = []
-myZipWith f x y = f (head x) (head y) : (myZipWith f (tail x) (tail y))
+myZipWith f (x:xs) (y:ys) = f x y : (myZipWith f xs ys)
