@@ -74,7 +74,8 @@ squishAgain :: [[a]] -> [a]
 squishAgain a = squishMap id a
 
 myMaximumBy :: (a -> a -> Ordering)
-            -> [a] -> a
+            -> [a]
+            -> a
 myMaximumBy _ (x:[]) = x
 myMaximumBy f (x:xs) =
   let y = myMaximumBy f xs in
@@ -84,7 +85,8 @@ myMaximumBy f (x:xs) =
       GT -> x
 
 myMinimumBy :: (a -> a -> Ordering)
-            -> [a] -> a
+            -> [a]
+            -> a
 myMinimumBy _ (x:[]) = x
 myMinimumBy f (x:xs) =
   let y = myMinimumBy f xs in
