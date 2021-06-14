@@ -305,3 +305,25 @@ test20 =
   do
     print $ removeAt 2 "abcd" == ('b',"acd")
 -}
+
+--21. Insert an element at a given position into a list.
+
+insertAt e xs i = take (i-1) xs ++ [e] ++ drop (i-1) xs
+
+{-
+test21 :: IO ()
+test21 =
+  do
+    print $ insertAt 'X' "abcd" 2 == "aXbcd"
+-}
+
+--22. Create a list containing all integers within a given range.
+
+range x y = [x..y]
+
+{-
+test22 :: IO ()
+test22 =
+  do
+    range 4 9 == [4,5,6,7,8,9]
+-}
