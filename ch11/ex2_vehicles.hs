@@ -32,4 +32,4 @@ getManu :: Vehicle -> Manufacturer
 getManu (Car x _) = x
 
 --4. it will throw an exception because there is no Manufacturer data in plane
---5. added Size datatype, as well as Size to Plane data constructor
+--5. added Size datatype, as well as Size to Plane data constructor, and extra '_' to isPlane function Plane argument

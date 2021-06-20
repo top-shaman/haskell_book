@@ -1,0 +1,5 @@
+--1. data PugType = PugData -- cardinality 1
+--2. data Airline = PapuAir | CatapultsR'Us | TakeYourChancesUnited -- cardinality 3
+--3. Int16 has a cardinality of 65536
+--4. Int has cardinality 18446744073709551614; Integer has infinite cardinality
+--5. the cardinality is 2^8
