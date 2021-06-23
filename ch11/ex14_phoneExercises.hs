@@ -141,7 +141,7 @@ coolestLetter = mostPopularLetter . concat
 
 mostPopularWord :: String -> String
 mostPopularWord xs = head $ findMost $ group $ sort $ split xs
-  where split []= []
+  where split [] = []
         split x = matched : (split $ dropWhile (not . isLetter) rest)
           where
             (matched, rest) = span isLetter x
