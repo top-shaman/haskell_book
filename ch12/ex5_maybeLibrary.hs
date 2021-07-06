@@ -1,4 +1,4 @@
-module SmallLibrary where
+module MaybeLibrary where
 
 --1.
 isJust :: Maybe a -> Bool

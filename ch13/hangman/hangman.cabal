@@ -1,0 +1,31 @@
+name:                hangman
+version:             0.1.0.0
+synopsis:           Playing Hangman
+-- description:
+homepage:            Chris N Julie
+license:             BSD3
+license-file:        LICENSE
+author:              Chris Allen and Julie Moronuki
+maintainer:          haskellbook.com
+category:            Game
+build-type:          Simple
+extra-source-files:  data/dict.txt
+cabal-version:       >=1.10
+
+executable hangman
+  main-is:             Main.hs
+  hs-source-dirs:      exe
+  build-depends:       base >= 4.7 && < 5
+                     , hangman
+                     , split
+  default-language:    Haskell2010
+
+
+library
+  hs-source-dirs:       src
+  exposed-modules:      Gallows
+                      , Puzzle
+                      , Words
+  build-depends:        base >= 4.7 && < 5
+                     , random
+  default-language:     Haskell2010

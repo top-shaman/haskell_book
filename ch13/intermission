@@ -1,0 +1,6 @@
+1. `forever` & `when` are imported from Control.Monad
+2. Data.Bits & Database.Blacktip.Types are unqualified & imported in their entirety
+3. Types probably brings in custom types
+4.a) MV, FPC, FS, CC, B
+  b) Filesystem.writeFile
+  c)forever comes from Control.Monad
