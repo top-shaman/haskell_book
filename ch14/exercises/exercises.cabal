@@ -1,0 +1,41 @@
+name:                  exercises
+version:               0.1.0.0
+license-file:          LICENSE
+description:           Ch 14 Exercises (Haskell Programming: First Principles to Practice)
+author:                Top Shaman
+maintainer:            topshaman@protonmail.com
+copyright:             2021 Top Shaman
+category:              Text
+build-type:            Simple
+cabal-version:         >=1.10
+
+library
+  exposed-modules:     WordNumber
+                     , Ciphers
+  ghc-options:         -Wall -fwarn-tabs
+  hs-source-dirs:      src
+  build-depends:       base >=4.7 && <5
+                     , hspec
+                     , QuickCheck
+  default-language:    Haskell2010
+
+executable exercises
+  main-is:             Main.hs
+  ghc-options:         -Wall -fwarn-tabs
+  hs-source-dirs:      app
+  build-depends:       base >=4.7 && <5
+                     , containers
+                     , exercises
+                     , QuickCheck
+  default-language:    Haskell2010
+
+test-suite tests
+  ghc-options:         -Wall -fno-warn-orphans
+  type:                exitcode-stdio-1.0
+  main-is:             tests.hs
+  hs-source-dirs:      tests
+  build-depends:       base
+                     , containers
+                     , exercises
+                     , QuickCheck
+  default-language:    Haskell2010

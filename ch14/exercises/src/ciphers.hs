@@ -8,7 +8,8 @@ import System.IO     (BufferMode(NoBuffering),
                       stdout)
 
 isShiftable :: Char -> Bool
-isShiftable char = isUpper char || isLower char
+isShiftable char = (ord char > 64 && ord char < 91) ||
+                   (ord char > 96 && ord char < 123)
 
 caseShift :: Char -> Int
 caseShift char
@@ -36,15 +37,19 @@ shift f keyCharValue char
 vigenere keyWord message = cipher 0 message -- set counter to track key index over message
       where cipher _ [] = [] --base case
             cipher count (x:xs) 
-              | isShiftable x           = shift (+) keyCharValue x : cipher (count+1) xs -- adds count when x is a letter
+              | isShiftable x           = case keyWord of
+                  "" -> shift (+) 0 x : cipher (count+1) xs
+                  _  -> shift (+) keyCharValue x : cipher (count+1) xs -- adds count when x is a letter
               | otherwise               = x : cipher count xs          -- doesn't alter count when not
-              where counter      = mod (count) $ length keyWord       -- 
+              where counter      = mod (count) $ length keyWord
                     keyCharValue = encode $ keyWord !! counter
 
 unvigenere keyWord message = cipher 0 message -- set counter to track key index over message
       where cipher _ [] = [] --base case
             cipher count (x:xs) 
-              | isShiftable x           = shift (flip (-)) keyCharValue x : cipher (count+1) xs -- adds count when x is a letter
+              | isShiftable x           = case keyWord of
+                  "" -> shift (flip (-)) 0 x : cipher (count+1) xs
+                  _  -> shift (flip (-)) keyCharValue x : cipher (count+1) xs -- adds count when x is a letter
               | otherwise               = x : cipher count xs          -- doesn't alter count when not
               where counter      = mod (count) $ length keyWord
                     keyCharValue = encode $ keyWord !! counter
@@ -52,9 +57,11 @@ unvigenere keyWord message = cipher 0 message -- set counter to track key index 
 caesar :: Int -> String -> String
 caesar _ [] = []
 caesar shift (x:xs)
-  | isUpper x = shifter 65 : caesar shift xs
-  | otherwise = shifter 97 : caesar shift xs
+  | isShiftable x = shifter (caseUnshift x) : caesar shift xs
+  | otherwise = x : caesar shift xs
   where shifter a = chr $ (+a) $ flip mod 26 $ (+) shift $ (+) (-a) $ ord x
+
+uncaesar n xs = caesar (negate n) xs
 
 main :: IO ()
 main = forever $ do

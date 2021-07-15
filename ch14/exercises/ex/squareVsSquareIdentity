@@ -1,0 +1,5 @@
+(square x = x * x) :: Num a => a -> a
+so the type is fully polymorphic
+
+(squareIdentity = square . sqrt) :: Floating c => c -> c
+due to floating point arithmetic, the precision won't always be consistent at all levels of scale
